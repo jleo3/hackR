@@ -1,4 +1,5 @@
 #!/opt/local/bin/ruby
 
-
-p ARGV
+require 'hack_r'
+include HackR
+hack ARGV
