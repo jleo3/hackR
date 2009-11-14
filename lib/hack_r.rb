@@ -28,9 +28,9 @@ module HackR
   end
 
   def output_help_message
-    puts %{You must supply the name of the directory:
+    puts %{You must supply the name of the project:
 
-             'hackr foo_project'
+             'hackr project_name'
           }
   end
 
