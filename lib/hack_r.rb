@@ -4,6 +4,10 @@ module HackR
   STANDARD_DIRS = ['test', 'lib']
 
   def hack(args)
+    if args.empty?
+      output_help_message
+      return
+    end
     output_intro_message
     create_directories args.first
   end
@@ -21,6 +25,13 @@ module HackR
 
   def output_intro_message
     puts "Hacking together a Ruby work environment..."
+  end
+
+  def output_help_message
+    puts %{You must supply the name of the directory:
+
+             'hackr foo_project'
+          }
   end
 
 end

@@ -23,6 +23,7 @@ class HackRTest < Test::Unit::TestCase
 
   def test_create_directories
     self.expects(:create_directory_named).with(@root_hack_dir)
+    FileUtils.expects(:cd).yields(nil)
     self.expects(:create_directory_named).with('test')
     self.expects(:create_directory_named).with('lib')
     create_directories @root_hack_dir
@@ -33,6 +34,11 @@ class HackRTest < Test::Unit::TestCase
     self.expects :output_intro_message
     self.expects(:create_directories).with(@root_hack_dir)
     hack command_line_args
+  end
+
+  def test_hack_does_not_execute_without_args
+    self.expects :output_help_message
+    hack []
   end
 
 end
