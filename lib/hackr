@@ -1,5 +1,7 @@
 #!/usr/local/bin/ruby
 
-require 'hack_r'
+HACKR_HOME = "/Users/Joe/dev/hackR"
+require "#{HACKR_HOME}/lib/hack_r"
 include HackR
+
 hack ARGV
