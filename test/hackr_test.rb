@@ -1,7 +1,5 @@
-require 'test/unit'
+require File.dirname(__FILE__) + '/test_helper'
 require 'lib/hack_r'
-require 'rubygems'
-require 'mocha'
 
 class HackRTest < Test::Unit::TestCase
   include HackR
