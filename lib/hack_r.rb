@@ -1,7 +1,7 @@
-require 'fileutils'
+require 'lib/directory_creator'
 
 module HackR
-  STANDARD_DIRS = ['test', 'lib']
+  class DirectoryExistsError < Exception; end
 
   def hack(args)
     if args.empty?
@@ -12,15 +12,9 @@ module HackR
     create_directories args.first
   end
 
-  def create_directories root_dir
-    create_directory_named root_dir
-    FileUtils.cd(root_dir) do
-      STANDARD_DIRS.each { |dir| create_directory_named dir }
-    end
-  end
-
-  def create_directory_named dir
-    FileUtils.mkdir dir
+  def create_directories(root_dir)
+    @directory_creator = DirectoryCreator.new(root_dir)
+    @directory_creator.create_directories
   end
 
   def output_intro_message

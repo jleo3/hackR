@@ -13,20 +13,6 @@ class HackRTest < Test::Unit::TestCase
     output_intro_message
   end
 
-  def test_create_dir
-    dir_name = "my_dir"
-    FileUtils.expects(:mkdir).with(dir_name)
-    create_directory_named dir_name
-  end
-
-  def test_create_directories
-    self.expects(:create_directory_named).with(@root_hack_dir)
-    FileUtils.expects(:cd).yields(nil)
-    self.expects(:create_directory_named).with('test')
-    self.expects(:create_directory_named).with('lib')
-    create_directories @root_hack_dir
-  end
-
   def test_hack_executes_commands
     command_line_args = [@root_hack_dir]
     self.expects :output_intro_message

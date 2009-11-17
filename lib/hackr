@@ -2,6 +2,7 @@
 
 HACKR_HOME = "/Users/Joe/dev/hackR"
 require "#{HACKR_HOME}/lib/hack_r"
+require "#{HACKR_HOME}/lib/directory_creator"
 include HackR
 
 hack ARGV
