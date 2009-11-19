@@ -1,4 +1,4 @@
-require 'lib/directory_creator'
+require File.dirname(__FILE__) + "/directory_creator"
 
 module HackR
   class DirectoryExistsError < Exception; end
